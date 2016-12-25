@@ -30,6 +30,9 @@ spotifyIntegration.prototype.convert = function () {
 				t.attr("href", href + "?embedAlready=true");
 				t.replaceWith('');
 				accessory.replaceWith('<iframe class="attachment-image attachment-spotify hide" width="'+embedWidth+'" height="'+embedHeight+'" src="' + encodeURI(embedURL) + '" frameborder="0" allowtransparency="true">Whoops not supposed to see this!</iframe>');
+				//Seeing as how we are changing the height of some text objects, discord now needs
+				//To be reset to the bottom of the text channel to meet user expectations.
+				$(".scroller.messages").scrollTop = $(".scroller.messages").scrollHeight;
 			}
 
 		}
